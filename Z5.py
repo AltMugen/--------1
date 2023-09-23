@@ -3,7 +3,6 @@ bakery = {
     'пирожное': [['мука', 'сахар', 'яйца', 'шоколад'], 50, 200],
     'маффин': [['мука', 'сахар', 'яйца', 'ваниль'], 30, 100]
 }
-
 cart = {}
 
 def view_description():
@@ -24,6 +23,7 @@ def view_all_info():
 
 def add_to_cart():
     product = input('Введите название продукции: ')
+    product = product.lower()
     quantity = int(input('Введите количество: '))
     if product in bakery and quantity <= bakery[product][2]:
         if product in cart:
@@ -57,8 +57,7 @@ def checkout():
 
 def z5():
     while True:
-        print(
-            '1. Просмотр описания\n2. Просмотр цены\n3. Просмотр количества\n4. Вся информация\n5. Добавить в корзину\n6. Удалить из корзины\n7. Оформить заказ\n8. Выход')
+        print('1. Просмотр описания\n2. Просмотр цены\n3. Просмотр количества\n4. Вся информация\n5. Добавить в корзину\n6. Удалить из корзины\n7. Оформить заказ\n8. Выход')
         choice = int(input('Выберите действие: '))
         if choice == 1:
             view_description()
@@ -69,7 +68,10 @@ def z5():
         elif choice == 4:
             view_all_info()
         elif choice == 5:
-            add_to_cart()
+            e = 1
+            while e:
+                add_to_cart()
+                e = int(input("Хотите продолжить покупки? 1 для продолжения, 0 для отказа\n"))
         elif choice == 6:
             remove_from_cart()
         elif choice == 7:

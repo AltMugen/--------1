@@ -19,7 +19,7 @@ def z4():
         if i >0:
             p+=i
     i = 0
-    while i< len(li):
+    while i < len(li):
         if li[i] < 0:
             li.pop(i)
         else:

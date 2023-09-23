@@ -1,11 +1,12 @@
 def z3():
-    s = input("Введите строку\n")
-    i = 0
-    k = 0
-    g = 0
-    while i<len(s)-1:
-        if s[i].isupper()==s[i].isupper():
-            k+=1
-        if s[i].lower() in "aeuoi":
-            g+=1
-    print(f"Кол во пар {k}\nКол во глассных {g}")
+    lst = list(map(int, input("Введите элементы списка, разделенные пробелами: ").split()))
+    sp = sum(i for i in lst if i > 0)
+    print(f'Сумма положительных элементов: {sp}')
+    if 0 in lst:
+        iz = lst.index(0)
+        sz = sum(lst[iz:])
+        print(f'Сумма элементов после первого нуля: {sz}')
+    else:
+        print('Сумму посчитать нельзя')
+    lst = [i for i in lst if i >= 0]
+    print(f'Список без отрицательных элементов: {lst}')
